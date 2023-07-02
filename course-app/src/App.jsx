@@ -1,33 +1,61 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function LikeButton() {
 
   return (
     <>
+      <img src="" alt="" />
+    </>
+  )
+
+}
+
+function Course(props) {
+  function redirect() {
+    window.open("https://www.google.com/")
+  }
+  let imagePath = '/images/courses/' + props.name + '.jpeg';
+
+  return (
+    <>
+      <img src={imagePath} alt="course Image" onClick={redirect} />
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <span>Course Name: {props.name}</span>
+        <br />
+        <span>Price:${props.price}</span>
+      </div >
+    </>
+
+  )
+
+}
+
+function App() {
+
+  let courses = [
+    {
+      name: "nodejs", price: 50
+    }, {
+      name: "react", price: 100
+    }, {
+      name: "angular", price: 150
+    }];
+
+
+
+  return (
+    <>
+      <h1>My Courses</h1>
+      <Course name="nodejs" > </ Course>
+      <Course name="react"> </Course>
+      <Course name="angular"> </Course>
+
+
+
+
+
     </>
   )
 }
