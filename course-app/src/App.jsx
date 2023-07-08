@@ -1,61 +1,28 @@
 import { useState } from 'react'
-
+import { Routes,Route } from 'react-router-dom'
 import './App.css'
+import Landing from './pages/langing'
+import Register from './pages/register'
+import Login from './pages/login'
+import Courses from './pages/courses'
 
-function LikeButton() {
 
-  return (
-    <>
-      <img src="" alt="" />
-    </>
-  )
 
-}
 
-function Course(props) {
-  function redirect() {
-    window.open("https://www.google.com/")
-  }
-  let imagePath = '/images/courses/' + props.name + '.jpeg';
-
-  return (
-    <>
-      <img src={imagePath} alt="course Image" onClick={redirect} />
-      <div>
-        <span>Course Name: {props.name}</span>
-        <br />
-        <span>Price:${props.price}</span>
-      </div >
-    </>
-
-  )
-
-}
 
 function App() {
 
-  let courses = [
-    {
-      name: "nodejs", price: 50
-    }, {
-      name: "react", price: 100
-    }, {
-      name: "angular", price: 150
-    }];
-
-
 
   return (
     <>
-      <h1>My Courses</h1>
-      <Course name="nodejs" > </ Course>
-      <Course name="react"> </Course>
-      <Course name="angular"> </Course>
 
-
-
-
-
+      <Routes>
+        <Route path="/" element={<Landing />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/courses" element={<Courses />}></Route>
+      </Routes>
+      
     </>
   )
 }
